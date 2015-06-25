@@ -130,13 +130,24 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Icon.png" />
-    <Content Include="Scripts\bootstrap\bootstrap.js" />
-    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\albumCollection.js" />
+    <Content Include="Scripts\Controllers\albumDetailsController.js" />
+    <Content Include="Scripts\Lib\angular-route\angular-route.js" />
+    <Content Include="Scripts\Lib\angular-route\angular-route.min.js" />
+    <Content Include="Scripts\Lib\angular\angular-mocks.js" />
+    <Content Include="Scripts\Lib\angular\angular.js" />
+    <Content Include="Scripts\Lib\angular\angular.min.js" />
+    <Content Include="Scripts\Lib\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\Lib\bootstrap\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\GbAlbumCollection.pubxml" />
-    <None Include="Scripts\jquery\jquery-2.1.4.intellisense.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.4.js" />
-    <Content Include="Scripts\jquery\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\Lib\angular\angular.min.js.map" />
+    <Content Include="Scripts\Lib\angular-route\angular-route.min.js.map" />
+    <None Include="Scripts\Lib\jquery\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\Lib\jquery\jquery-2.1.4.js" />
+    <Content Include="Scripts\Lib\jquery\jquery-2.1.4.min.js" />
     <Content Include="Scripts\npm.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Static\Albums\Details.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +175,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Albums\Index.cshtml" />
-    <Content Include="Scripts\jquery\jquery-2.1.4.min.map" />
+    <Content Include="Scripts\Lib\jquery\jquery-2.1.4.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,6 +192,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlbumCollection.Api\AlbumCollection.Api.csproj">
+      <Project>{5bfbf250-f42e-44f5-b1a9-ba5d4d1888af}</Project>
+      <Name>AlbumCollection.Api</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

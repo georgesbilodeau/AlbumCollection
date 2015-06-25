@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http.Dependencies;
+using AlbumCollection.Api.Controllers;
 using Microsoft.Practices.Unity;
 
 namespace AlbumCollection.Infrastructure {
@@ -9,6 +10,7 @@ namespace AlbumCollection.Infrastructure {
 
         public UnityApiDependencyResolver(IUnityContainer container) {
             this.container = container;
+            RegisterDependencies();
         }
 
         #region IDependencyResolver Members
@@ -45,6 +47,11 @@ namespace AlbumCollection.Infrastructure {
         }
 
         #endregion
+
+        private void RegisterDependencies() {
+            // register Web API controllers
+            this.container.RegisterType<AlbumsController>();
+        }
 
     }
 }
