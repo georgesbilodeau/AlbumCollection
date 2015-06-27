@@ -3,10 +3,19 @@
     angular.module('albumCollection')
         .controller('albumDetailsCtrl', AlbumDetailsController);
 
-    function AlbumDetailsController() {
+    function AlbumDetailsController($http, $scope) {
         
-        // TODO: retrieve album via API
+        var vm = this;
 
+        vm.album = {};
+
+        $http.get("api/Albums/")
+            .success(function (albumData) {
+                vm.album = albumData;
+            })
+            .error(function (error) {
+                console.log("error getting album: " + error);
+            });
     }
 
 })();

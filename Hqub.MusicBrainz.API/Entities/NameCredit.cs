@@ -1,10 +1,8 @@
 using System.Xml.Serialization;
 
-namespace Hqub.MusicBrainz.API.Entities
-{
+namespace Hqub.MusicBrainz.API.Entities {
     [XmlRoot("name-credit")]
-    public class NameCredit
-    {
+    public class NameCredit {
         /// <summary>
         /// Gets or sets the joinphrase.
         /// </summary>

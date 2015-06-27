@@ -1,10 +1,8 @@
 ﻿using System.Xml.Serialization;
 
-namespace Hqub.MusicBrainz.API.Entities
-{
+namespace Hqub.MusicBrainz.API.Entities {
     [XmlRoot("medium")]
-    public class Medium
-    {
+    public class Medium {
         /// <summary>
         /// Gets or sets the format.
         /// </summary>
@@ -25,8 +23,7 @@ namespace Hqub.MusicBrainz.API.Entities
     }
 
     [XmlRoot("disk-list")]
-    public class DiskList
-    {
+    public class DiskList {
         /// <summary>
         /// Gets or sets the count.
         /// </summary>

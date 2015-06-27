@@ -1,10 +1,8 @@
 ﻿using System.Xml.Serialization;
 
-namespace Hqub.MusicBrainz.API.Entities
-{
+namespace Hqub.MusicBrainz.API.Entities {
     [XmlRoot("label-info")]
-    public class LabelInfo
-    {
+    public class LabelInfo {
         /// <summary>
         /// Gets or sets the catalog-number.
         /// </summary>

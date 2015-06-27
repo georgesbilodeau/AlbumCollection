@@ -5,11 +5,9 @@ using System.Xml.Serialization;
 using Hqub.MusicBrainz.API.Entities.Collections;
 using Hqub.MusicBrainz.API.Entities.Metadata;
 
-namespace Hqub.MusicBrainz.API.Entities
-{
+namespace Hqub.MusicBrainz.API.Entities {
     [XmlRoot("release-group", Namespace = "http://musicbrainz.org/ns/mmd-2.0#")]
-    public class ReleaseGroup : Entity
-    {
+    public class ReleaseGroup : Entity {
         public const string EntityName = "release-group";
 
         #region Properties
@@ -79,21 +77,18 @@ namespace Hqub.MusicBrainz.API.Entities
         #region Static Methods
 
         [Obsolete("Use GetAsync() method.")]
-        public static ReleaseGroup Get(string id, params string[] inc)
-        {
+        public static ReleaseGroup Get(string id, params string[] inc) {
             return GetAsync<ReleaseGroup>(EntityName, id, inc).Result;
         }
 
         [Obsolete("Use SearchAsync() method.")]
-        public static ReleaseGroupList Search(string query, int limit = 25, int offset = 0)
-        {
+        public static ReleaseGroupList Search(string query, int limit = 25, int offset = 0) {
             return SearchAsync<ReleaseGroupMetadata>(EntityName,
                 query, limit, offset).Result.Collection;
         }
 
         [Obsolete("Use BrowseAsync() method.")]
-        public static ReleaseGroupList Browse(string relatedEntity, string value, int limit = 25, int offset = 0, params  string[] inc)
-        {
+        public static ReleaseGroupList Browse(string relatedEntity, string value, int limit = 25, int offset = 0, params  string[] inc) {
             return BrowseAsync<ReleaseGroupMetadata>(EntityName,
                 relatedEntity, value, limit, offset, inc).Result.Collection;
         }
@@ -104,8 +99,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="id">The release-group MusicBrainz id.</param>
         /// <param name="inc">A list of entities to include (subqueries).</param>
         /// <returns></returns>
-        public async static Task<ReleaseGroup> GetAsync(string id, params string[] inc)
-        {
+        public async static Task<ReleaseGroup> GetAsync(string id, params string[] inc) {
             return await GetAsync<ReleaseGroup>(EntityName, id, inc);
         }
 
@@ -116,8 +110,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="limit">The maximum number of release-groups to return (default = 25).</param>
         /// <param name="offset">The offset to the release-groups list (enables paging, default = 0).</param>
         /// <returns></returns>
-        public async static Task<ReleaseGroupList> SearchAsync(string query, int limit = 25, int offset = 0)
-        {
+        public async static Task<ReleaseGroupList> SearchAsync(string query, int limit = 25, int offset = 0) {
             return (await SearchAsync<ReleaseGroupMetadata>(EntityName,
                 query, limit, offset)).Collection;
         }
@@ -129,8 +122,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="limit">The maximum number of release-groups to return (default = 25).</param>
         /// <param name="offset">The offset to the release-groups list (enables paging, default = 0).</param>
         /// <returns></returns>
-        public async static Task<ReleaseGroupList> SearchAsync(QueryParameters<ReleaseGroup> query, int limit = 25, int offset = 0)
-        {
+        public async static Task<ReleaseGroupList> SearchAsync(QueryParameters<ReleaseGroup> query, int limit = 25, int offset = 0) {
             return (await SearchAsync<ReleaseGroupMetadata>(EntityName,
                 query.ToString(), limit, offset)).Collection;
         }
@@ -145,8 +137,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="offset">The offset to the release-groups list (enables paging, default = 0).</param>
         /// <param name="inc">A list of entities to include (subqueries).</param>
         /// <returns></returns>
-        public async static Task<ReleaseGroupList> BrowseAsync(string entity, string id, int limit = 25, int offset = 0, params  string[] inc)
-        {
+        public async static Task<ReleaseGroupList> BrowseAsync(string entity, string id, int limit = 25, int offset = 0, params  string[] inc) {
             return (await BrowseAsync<ReleaseGroupMetadata>(EntityName, entity, id,
                 limit, offset, inc)).Collection;
         }

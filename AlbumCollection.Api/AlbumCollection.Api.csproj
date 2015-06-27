@@ -62,6 +62,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlbumCollection.Services\AlbumCollection.Services.csproj">
+      <Project>{d56c25aa-bbc1-4704-9758-23b5e6d8313a}</Project>
+      <Name>AlbumCollection.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hqub.MusicBrainz.API\Hqub.MusicBrainz.API.csproj">
+      <Project>{77832ded-eefe-4db9-94af-b0be02cec356}</Project>
+      <Name>Hqub.MusicBrainz.API</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

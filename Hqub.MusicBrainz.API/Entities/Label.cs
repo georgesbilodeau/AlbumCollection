@@ -1,10 +1,8 @@
 ﻿using System.Xml.Serialization;
 
-namespace Hqub.MusicBrainz.API.Entities
-{
+namespace Hqub.MusicBrainz.API.Entities {
     [XmlRoot("label")]
-    public class Label
-    {
+    public class Label {
         /// <summary>
         /// Gets or sets the MusicBrainz id.
         /// </summary>

@@ -5,11 +5,9 @@ using System.Xml.Serialization;
 using Hqub.MusicBrainz.API.Entities.Collections;
 using Hqub.MusicBrainz.API.Entities.Metadata;
 
-namespace Hqub.MusicBrainz.API.Entities
-{
+namespace Hqub.MusicBrainz.API.Entities {
     [XmlRoot("release", Namespace = "http://musicbrainz.org/ns/mmd-2.0#")]
-    public class Release : Entity
-    {
+    public class Release : Entity {
         public const string EntityName = "release";
 
         #region Properties
@@ -100,14 +98,12 @@ namespace Hqub.MusicBrainz.API.Entities
         #region Static Methods
 
         [Obsolete("Use GetAsync() method.")]
-        public static Release Get(string id, params string[] inc)
-        {
+        public static Release Get(string id, params string[] inc) {
             return GetAsync<Release>(EntityName, id, inc).Result;
         }
 
         [Obsolete("Use SearchAsync() method.")]
-        public static ReleaseList Search(string query, int limit = 25, int offset = 0)
-        {
+        public static ReleaseList Search(string query, int limit = 25, int offset = 0) {
             return SearchAsync<ReleaseMetadata>(EntityName,
                 query, limit, offset).Result.Collection;
         }
@@ -118,8 +114,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="id">The release MusicBrainz id.</param>
         /// <param name="inc">A list of entities to include (subqueries).</param>
         /// <returns></returns>
-        public async static Task<Release> GetAsync(string id, params string[] inc)
-        {
+        public async static Task<Release> GetAsync(string id, params string[] inc) {
             return await GetAsync<Release>(EntityName, id, inc);
         }
 
@@ -130,8 +125,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="limit">The maximum number of releases to return (default = 25).</param>
         /// <param name="offset">The offset to the releases list (enables paging, default = 0).</param>
         /// <returns></returns>
-        public async static Task<ReleaseList> SearchAsync(string query, int limit = 25, int offset = 0)
-        {
+        public async static Task<ReleaseList> SearchAsync(string query, int limit = 25, int offset = 0) {
             return (await SearchAsync<ReleaseMetadata>(EntityName,
                 query, limit, offset)).Collection;
         }
@@ -143,8 +137,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="limit">The maximum number of releases to return (default = 25).</param>
         /// <param name="offset">The offset to the releases list (enables paging, default = 0).</param>
         /// <returns></returns>
-        public async static Task<ReleaseList> SearchAsync(QueryParameters<Release> query, int limit = 25, int offset = 0)
-        {
+        public async static Task<ReleaseList> SearchAsync(QueryParameters<Release> query, int limit = 25, int offset = 0) {
             return (await SearchAsync<ReleaseMetadata>(EntityName,
                 query.ToString(), limit, offset)).Collection;
         }
@@ -160,8 +153,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="inc">A list of entities to include (subqueries).</param>
         /// <returns></returns>
         public static async Task<ReleaseList> BrowseAsync(string entity, string id, int limit = 25,
-            int offset = 0, params string[] inc)
-        {
+            int offset = 0, params string[] inc) {
             return (await BrowseAsync<ReleaseMetadata>(EntityName,
                 entity, id, limit, offset, inc)).Collection;
         }
@@ -171,8 +163,7 @@ namespace Hqub.MusicBrainz.API.Entities
 
     [XmlType(Namespace = "http://musicbrainz.org/ns/mmd-2.0#")]
     [XmlRoot("text-representation", Namespace = "http://musicbrainz.org/ns/mmd-2.0#")]
-    public class TextRepresentation
-    {
+    public class TextRepresentation {
         /// <summary>
         /// Gets or sets the language.
         /// </summary>

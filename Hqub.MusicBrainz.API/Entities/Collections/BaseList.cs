@@ -1,9 +1,7 @@
 ﻿using System.Xml.Serialization;
 
-namespace Hqub.MusicBrainz.API.Entities.Collections
-{
-    public class BaseList
-    {
+namespace Hqub.MusicBrainz.API.Entities.Collections {
+    public class BaseList {
         /// <summary>
         /// Gets or sets the total list items count.
         /// </summary>

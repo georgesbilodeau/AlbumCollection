@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using AlbumCollection.Services.Repo;
 using Microsoft.Practices.Unity;
 
 namespace AlbumCollection.Infrastructure {
@@ -9,6 +10,7 @@ namespace AlbumCollection.Infrastructure {
 
         public UnityMvcDependencyResolver(IUnityContainer container) {
             this.container = container;
+            RegisterDependencies();
         }
 
         #region IDependencyResolver Members
@@ -28,6 +30,10 @@ namespace AlbumCollection.Infrastructure {
         }
 
         #endregion
+
+        private void RegisterDependencies() {
+            this.container.RegisterType<IAlbumRepo, AlbumRepo>(new TransientLifetimeManager());
+        }
 
     }
 }

@@ -82,7 +82,7 @@ namespace Hqub.MusicBrainz.API.Entities {
         public ReleaseGroupList ReleaseGroups { get; set; }
 
         [XmlElement("release-list")]
-        public ReleaseList ReleaseLists { get; set; }
+        public ReleaseList Releases { get; set; }
 
         [XmlElement("work-list")]
         public WorkList Works { get; set; }

@@ -198,6 +198,10 @@
       <Project>{5bfbf250-f42e-44f5-b1a9-ba5d4d1888af}</Project>
       <Name>AlbumCollection.Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AlbumCollection.Services\AlbumCollection.Services.csproj">
+      <Project>{d56c25aa-bbc1-4704-9758-23b5e6d8313a}</Project>
+      <Name>AlbumCollection.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

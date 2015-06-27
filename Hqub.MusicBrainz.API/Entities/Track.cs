@@ -1,10 +1,8 @@
 ﻿using System.Xml.Serialization;
 
-namespace Hqub.MusicBrainz.API.Entities
-{
+namespace Hqub.MusicBrainz.API.Entities {
     [XmlRoot("track", Namespace = "http://musicbrainz.org/ns/mmd-2.0#")]
-    public class Track
-    {
+    public class Track {
         /// <summary>
         /// Gets or sets the MusicBrainz id.
         /// </summary>

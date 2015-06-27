@@ -5,12 +5,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hqub.MusicBrainz.API
-{
-    public static class Configuration
-    {
-        static Configuration()
-        {
+namespace Hqub.MusicBrainz.API {
+    public static class Configuration {
+        static Configuration() {
             GenerateCommunicationThrow = true;
             Proxy = null;
             UserAgent = "Hqub.MusicBrainz/2.0";

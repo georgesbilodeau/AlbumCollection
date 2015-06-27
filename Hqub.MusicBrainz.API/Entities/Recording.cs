@@ -5,11 +5,9 @@ using System.Xml.Serialization;
 using Hqub.MusicBrainz.API.Entities.Collections;
 using Hqub.MusicBrainz.API.Entities.Metadata;
 
-namespace Hqub.MusicBrainz.API.Entities
-{
+namespace Hqub.MusicBrainz.API.Entities {
     [XmlRoot("recording", Namespace = "http://musicbrainz.org/ns/mmd-2.0#")]
-    public class Recording : Entity
-    {
+    public class Recording : Entity {
         public const string EntityName = "recording";
 
         #region Properties
@@ -63,21 +61,18 @@ namespace Hqub.MusicBrainz.API.Entities
         #region Static methods
 
         [Obsolete("Use GetAsync() method.")]
-        public static Recording Get(string id, params string[] inc)
-        {
+        public static Recording Get(string id, params string[] inc) {
             return GetAsync<Recording>(EntityName, id, inc).Result;
         }
 
         [Obsolete("Use SearchAsync() method.")]
-        public static RecordingList Search(string query, int limit = 25, int offset = 0)
-        {
+        public static RecordingList Search(string query, int limit = 25, int offset = 0) {
             return SearchAsync<RecordingMetadata>(EntityName,
                 query, limit, offset).Result.Collection;
         }
 
         [Obsolete("Use BrowseAsync() method.")]
-        public static RecordingList Browse(string relatedEntity, string value, int limit = 25, int offset = 0, params  string[] inc)
-        {
+        public static RecordingList Browse(string relatedEntity, string value, int limit = 25, int offset = 0, params  string[] inc) {
             return BrowseAsync<RecordingMetadata>(EntityName,
                 relatedEntity, value, limit, offset, inc).Result.Collection;
         }
@@ -88,8 +83,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="id">The recording MusicBrainz id.</param>
         /// <param name="inc">A list of entities to include (subqueries).</param>
         /// <returns></returns>
-        public async static Task<Recording> GetAsync(string id, params string[] inc)
-        {
+        public async static Task<Recording> GetAsync(string id, params string[] inc) {
             return await GetAsync<Recording>(EntityName, id, inc);
         }
 
@@ -100,8 +94,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="limit">The maximum number of recordings to return (default = 25).</param>
         /// <param name="offset">The offset to the recordings list (enables paging, default = 0).</param>
         /// <returns></returns>
-        public async static Task<RecordingList> SearchAsync(string query, int limit = 25, int offset = 0)
-        {
+        public async static Task<RecordingList> SearchAsync(string query, int limit = 25, int offset = 0) {
             return (await SearchAsync<RecordingMetadata>(EntityName,
                 query, limit, offset)).Collection;
         }
@@ -113,8 +106,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="limit">The maximum number of recordings to return (default = 25).</param>
         /// <param name="offset">The offset to the recordings list (enables paging, default = 0).</param>
         /// <returns></returns>
-        public async static Task<RecordingList> SearchAsync(QueryParameters<Recording> query, int limit = 25, int offset = 0)
-        {
+        public async static Task<RecordingList> SearchAsync(QueryParameters<Recording> query, int limit = 25, int offset = 0) {
             return (await SearchAsync<RecordingMetadata>(EntityName,
                 query.ToString(), limit, offset)).Collection;
         }
@@ -129,8 +121,7 @@ namespace Hqub.MusicBrainz.API.Entities
         /// <param name="offset">The offset to the recordings list (enables paging, default = 0).</param>
         /// <param name="inc">A list of entities to include (subqueries).</param>
         /// <returns></returns>
-        public async static Task<RecordingList> BrowseAsync(string entity, string id, int limit = 25, int offset = 0, params  string[] inc)
-        {
+        public async static Task<RecordingList> BrowseAsync(string entity, string id, int limit = 25, int offset = 0, params  string[] inc) {
             return (await BrowseAsync<RecordingMetadata>(EntityName,
                 entity, id, limit, offset, inc)).Collection;
         }
