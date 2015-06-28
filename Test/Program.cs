@@ -9,10 +9,10 @@ namespace Test {
     class Program {
         static void Main(string[] args) {
             try {
-                //ShowAlbum("e6bc2763-c64f-44bd-9c5a-73322de6518e");
-                //SearchArtists("Vhol");
-                //ShowArtist("2a4b8aa8-6659-4712-8e17-8e1e6a299348");
-                TestRepo("e6bc2763-c64f-44bd-9c5a-73322de6518e");
+                //ShowAlbumWithTracks("88189444-133e-42ab-a250-ea60b2b4b0fd");
+                //SearchArtists("KEN mode");
+                ShowArtist("68c1feca-ff4f-4df4-a829-9c495a26c69c");
+                //TestRepo("e6bc2763-c64f-44bd-9c5a-73322de6518e");
             } catch (Exception ex) {
                 Console.WriteLine(ex.ToString());
             } finally {
@@ -20,9 +20,14 @@ namespace Test {
             }
         }
 
-        private static async void ShowAlbum(string id) {
-            var album = await Release.GetAsync(id);
+        private static async void ShowAlbumWithTracks(string id) {
+            var album = await Release.GetAsync(id, "recordings");
             Console.WriteLine("release: " + album.Title);
+            Console.WriteLine("----------------");
+
+            Medium medium = album.MediumList.Items.First();
+            foreach (Track track in medium.Tracks.Items)
+                Console.WriteLine(@"{0}. {1} ({2:%m\:ss})", track.Position, track.Recording.Title, TimeSpan.FromMilliseconds(track.Length));
         }
 
         private static async void SearchArtists(string name) {
@@ -36,17 +41,22 @@ namespace Test {
             
             ReleaseList albums = await Release.BrowseAsync("artist", id);
             
-            Console.WriteLine("artist: " + artist.Name);
+            Console.WriteLine("artist: {0} ({1})", artist.Name, artist.Id);
             foreach (Release album in albums.Items) {
-                Console.WriteLine("release: " + album.Title);
+                Console.WriteLine("release: {0} ({1})", album.Title, album.Id);
                 Console.WriteLine("----------------");
 
-                RecordingList tracks = await Recording.BrowseAsync("release", album.Id);
-                foreach (Recording track in tracks.Items)
-                    Console.WriteLine(@"{0} ({1:%m\:ss})", track.Title, TimeSpan.FromMilliseconds(track.Length));
+                await ShowTracks(album.Id);
 
                 Console.WriteLine();
             }
+        }
+
+        private static async Task<RecordingList> ShowTracks(string releaseId) {
+            RecordingList tracks = await Recording.BrowseAsync("release", releaseId);
+            foreach (Recording track in tracks.Items)
+                Console.WriteLine(@"{0} ({1:%m\:ss})", track.Title, TimeSpan.FromMilliseconds(track.Length));
+            return tracks;
         }
 
         private static async void TestRepo(string releaseId) {

@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -40,8 +48,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Album.cs" />
+    <Compile Include="AlbumContext.cs" />
+    <Compile Include="Entities\Album.cs" />
+    <Compile Include="Entities\Artist.cs" />
+    <Compile Include="Migrations\201506282039511_InitialAlbumAndArtist.cs" />
+    <Compile Include="Migrations\201506282039511_InitialAlbumAndArtist.Designer.cs">
+      <DependentUpon>201506282039511_InitialAlbumAndArtist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506282137304_AlbumYear.cs" />
+    <Compile Include="Migrations\201506282137304_AlbumYear.Designer.cs">
+      <DependentUpon>201506282137304_AlbumYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hqub.MusicBrainz.API\Hqub.MusicBrainz.API.csproj">
+      <Project>{77832ded-eefe-4db9-94af-b0be02cec356}</Project>
+      <Name>Hqub.MusicBrainz.API</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201506282039511_InitialAlbumAndArtist.resx">
+      <DependentUpon>201506282039511_InitialAlbumAndArtist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506282137304_AlbumYear.resx">
+      <DependentUpon>201506282137304_AlbumYear.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

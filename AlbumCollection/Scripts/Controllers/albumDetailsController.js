@@ -3,10 +3,8 @@
     angular.module('albumCollection')
         .controller('albumDetailsCtrl', AlbumDetailsController);
 
-    function AlbumDetailsController($http, $scope) {
-        
+    function AlbumDetailsController($http) {
         var vm = this;
-
         vm.album = {};
 
         $http.get("api/Albums/")

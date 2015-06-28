@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Hqub.MusicBrainz.API.Entities.Collections
-{
+namespace Hqub.MusicBrainz.API.Entities.Collections {
     [XmlRoot("medium-list", Namespace = "http://musicbrainz.org/ns/mmd-2.0#")]
-    public class MediumList : BaseList
-    {
+    public class MediumList : BaseList {
         /// <summary>
         /// Gets or sets the medium track count.
         /// </summary>
