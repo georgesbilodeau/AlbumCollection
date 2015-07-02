@@ -155,6 +155,7 @@
     <Content Include="Scripts\Lib\jquery\jquery-2.1.4.min.js" />
     <Content Include="Scripts\npm.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Static\AlbumArt\V\vhöl_self-titled.jpg" />
     <Content Include="Static\Albums\Details.html" />
     <Content Include="Web.config" />
   </ItemGroup>

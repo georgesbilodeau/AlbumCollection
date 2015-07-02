@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AlbumContext.cs" />
     <Compile Include="Entities\Album.cs" />
+    <Compile Include="Entities\AlbumArt.cs" />
     <Compile Include="Entities\Artist.cs" />
     <Compile Include="Migrations\201506282039511_InitialAlbumAndArtist.cs" />
     <Compile Include="Migrations\201506282039511_InitialAlbumAndArtist.Designer.cs">
@@ -58,6 +59,10 @@
     <Compile Include="Migrations\201506282137304_AlbumYear.cs" />
     <Compile Include="Migrations\201506282137304_AlbumYear.Designer.cs">
       <DependentUpon>201506282137304_AlbumYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507012123023_AddAlbumArt.cs" />
+    <Compile Include="Migrations\201507012123023_AddAlbumArt.Designer.cs">
+      <DependentUpon>201507012123023_AddAlbumArt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506282137304_AlbumYear.resx">
       <DependentUpon>201506282137304_AlbumYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507012123023_AddAlbumArt.resx">
+      <DependentUpon>201507012123023_AddAlbumArt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,21 +8,14 @@ namespace AlbumCollection.Domain.Migrations {
         }
 
         protected override void Seed(AlbumContext context) {
-            var kenMode = new Artist {
-                MbId = "68c1feca-ff4f-4df4-a829-9c495a26c69c",
-                Name = "KEN mode"
-            };
+            AddVholSelfTitled(context);
+            AddKenModeVenerable(context);
+        }
 
+        private void AddVholSelfTitled(AlbumContext context) {
             var vhol = new Artist {
                 MbId = "2a4b8aa8-6659-4712-8e17-8e1e6a299348",
                 Name = "Vhöl"
-            };
-
-            var kenModeVenerable = new Album {
-                MbId = "3fc9567d-3428-4d3c-8ccc-d7a4f95ae819",
-                Name = "Venerable",
-                Artist = kenMode,
-                Year = 2011
             };
 
             var vholSelfTitled = new Album {
@@ -32,11 +25,38 @@ namespace AlbumCollection.Domain.Migrations {
                 Year = 2013
             };
 
-            kenMode.Albums.Add(kenModeVenerable);
-            vhol.Albums.Add(vholSelfTitled);
+            var vholSelfTitledAlbumArt = new AlbumArt {
+                Album = vholSelfTitled,
+                Name = "cover",
+                Type = AlbumArtType.Cover,
+                Path = "/Static/V/vhol_self-titled.jpg"
+            };
 
-            context.Artists.AddOrUpdate(kenMode, vhol);
-            context.Albums.AddOrUpdate(kenModeVenerable, vholSelfTitled);
+            vhol.Albums.Add(vholSelfTitled);
+            vholSelfTitled.AlbumArt.Add(vholSelfTitledAlbumArt);
+
+            context.Artists.AddOrUpdate(vhol);
+            context.Albums.AddOrUpdate(vholSelfTitled);
+            context.AlbumArt.AddOrUpdate(vholSelfTitledAlbumArt);
+        }
+
+        private void AddKenModeVenerable(AlbumContext context) {
+            var kenMode = new Artist {
+                MbId = "68c1feca-ff4f-4df4-a829-9c495a26c69c",
+                Name = "KEN mode"
+            };
+
+            var kenModeVenerable = new Album {
+                MbId = "3fc9567d-3428-4d3c-8ccc-d7a4f95ae819",
+                Name = "Venerable",
+                Artist = kenMode,
+                Year = 2011
+            };
+
+            kenMode.Albums.Add(kenModeVenerable);
+
+            context.Artists.AddOrUpdate(kenMode);
+            context.Albums.AddOrUpdate(kenModeVenerable);
         }
     }
 }

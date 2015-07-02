@@ -28,9 +28,24 @@ namespace Hqub.MusicBrainz.API.Entities {
         [XmlElement("back")]
         public bool Back { get; set; }
 
-        public static Uri GetCoverArtUri(string releaseId) {
-            string url = "http://coverartarchive.org/release/" + releaseId + "/front-250.jpg";
+        public static Uri GetCoverArtUri(string releaseId, AlbumArtFormat format) {
+            string url = string.Format("http://coverartarchive.org/release/{0}/{1}", releaseId, FormatToFileName(format));
             return new Uri(url, UriKind.RelativeOrAbsolute);
         }
+
+        private static string FormatToFileName(AlbumArtFormat format) {
+            switch (format) {
+                case (AlbumArtFormat.Front500):
+                    return "front-500.jpg";
+                case (AlbumArtFormat.Default):
+                default:
+                    return string.Empty;
+            }
+        }
+    }
+
+    public enum AlbumArtFormat {
+        Default,
+        Front500
     }
 }

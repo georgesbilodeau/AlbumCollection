@@ -1,8 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
+using AlbumCollection.Domain;
 using AlbumCollection.Services.Repo;
-using Hqub.MusicBrainz.API.Entities;
 
 namespace AlbumCollection.Api.Controllers {
     [RoutePrefix("api/Albums")]
@@ -18,7 +17,7 @@ namespace AlbumCollection.Api.Controllers {
         public async Task<IHttpActionResult> Get(string id = "") {
             id = "e6bc2763-c64f-44bd-9c5a-73322de6518e";
             
-            Release album = await this.albumRepo.LoadAsync(id);
+            Album album = await this.albumRepo.LoadAsync(id);
             return Ok(album);
         }
     }

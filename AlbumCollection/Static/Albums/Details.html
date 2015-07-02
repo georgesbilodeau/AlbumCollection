@@ -1,5 +1,7 @@
 ﻿<div ng-controller="albumDetailsCtrl as vm" class="panel panel-default">
     <div class="panel-body">
-        <p>{{vm.album.Title}}</p>
+        <p>{{vm.album.Name}}</p>
+        <p>{{vm.album.Artist.Name}}</p>
+        <img src="{{vm.album.CoverArt.Path}}"
     </div>
 </div>
