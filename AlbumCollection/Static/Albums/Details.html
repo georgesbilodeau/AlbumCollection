@@ -3,5 +3,7 @@
         <p>{{vm.album.Name}}</p>
         <p>{{vm.album.Artist.Name}}</p>
         <img src="{{vm.album.CoverArt.Path}}"
+             srcset="{{vm.album.CoverArt.Path}} 500w"
+             sizes="(max-width: 480px) 75vw, (max-width: 1700px) 50vw, 33vw" />
     </div>
 </div>

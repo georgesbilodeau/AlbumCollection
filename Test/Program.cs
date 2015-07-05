@@ -15,8 +15,8 @@ namespace Test {
                 //ShowAlbumWithTracks("88189444-133e-42ab-a250-ea60b2b4b0fd");
                 //SearchArtists("KEN mode");
                 //ShowArtist("68c1feca-ff4f-4df4-a829-9c495a26c69c");
-                TestRepo("e6bc2763-c64f-44bd-9c5a-73322de6518e");
-                //TestCoverArt("e6bc2763-c64f-44bd-9c5a-73322de6518e");
+                //TestRepo("e6bc2763-c64f-44bd-9c5a-73322de6518e");
+                TestCoverArt("e6bc2763-c64f-44bd-9c5a-73322de6518e");
                 //ImgTest();
             } catch (Exception ex) {
                 Console.WriteLine(ex.ToString());

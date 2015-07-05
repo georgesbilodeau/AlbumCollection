@@ -10,6 +10,11 @@ namespace AlbumCollection.Domain {
             Albums = new List<Album>();
         }
 
+        public Artist(string mbId, string name) : this() {
+            MbId = mbId;
+            Name = name;
+        }
+
         #endregion
 
         #region Properties

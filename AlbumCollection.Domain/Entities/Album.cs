@@ -11,6 +11,13 @@ namespace AlbumCollection.Domain {
             AlbumArt = new List<AlbumArt>();
         }
 
+        public Album(string mbId, string name, Artist artist, int year) : this() {
+            MbId = mbId;
+            Name = name;
+            Artist = artist;
+            Year = year;
+        }
+
         #endregion
 
         #region Properties
@@ -22,10 +29,10 @@ namespace AlbumCollection.Domain {
         [Required]
         public string Name { get; set; }
 
-        public int Year { get; set; }
-
         [Required]
         public Artist Artist { get; set; }
+
+        public int Year { get; set; }
 
         public IList<AlbumArt> AlbumArt { get; set; }
 
